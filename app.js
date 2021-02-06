@@ -1,12 +1,14 @@
 const inputField = document.querySelector(".input-field");
 const todoList = document.getElementById("todo-list");
 const todoBtns = document.getElementById("todo-btns");
+const todoBtnsMobile = document.getElementById("todo-btns-mobile");
 const todoCount = document.getElementById("items");
 const clearAll = document.getElementById("clear");
 const btnsContainer = document.getElementById("btns");
 const allToDo = document.getElementById("all");
 const activeToDo = document.getElementById("active");
 const completedToDo = document.getElementById("completed");
+const checkbox = document.getElementById("checkbox");
 
 countToDo();
 
@@ -16,8 +18,10 @@ function createToDo(e) {
     todo.innerHTML = 
             `<input type="checkbox" class="checkbox" id="checkbox">
             <label for="">${e}</label>
-            <button id="delete" class="delete">x</button>`;
+            <button id="delete" class="delete-btn"></button>`;
     todoList.appendChild(todo);
+    todoList.insertBefore(todo, todoBtnsMobile);
+
     inputField.value = "";
     countToDo();
     console.log("added new to do");
@@ -83,16 +87,18 @@ todoList.addEventListener('click', (e) => {
         el.classList.add("checked");
         el.parentElement.classList.remove("active");
         el.parentElement.classList.add("completed");
+        el.style.backgroundColor = "pink";
         countToDo();
     } else if (el.checked === false){
         console.log("incomplete");
         el.classList.remove("checked");
         el.parentElement.classList.add("active");
         el.parentElement.classList.remove("completed");
+        el.style.backgroundColor = "white";
         countToDo();
     }
 
-    if(el.tagName === "BUTTON" && el.classList.contains("delete")) {
+    if(el.tagName === "BUTTON" && el.classList.contains("delete-btn")) {
         deleteToDo(el.parentElement);
         console.log("deleted");
         countToDo();

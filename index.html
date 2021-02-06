@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
 <title>Frontend Mentor | Todo app</title>
 
 <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -17,15 +18,18 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>TO DO</h1>
-            <span>o</span>
+            <h1 class="title">todo</h1>
+            <button class="theme"><img src="images/icon-moon.svg" alt=""></button>
         </div>
         <div class="input-container">
-            <input class="input-field" type="text">
+            <input class="input-field" type="text" placeholder="Create a new todo..." maxlength="20">
         </div>
         <div class="todo-container">
             <div class="todo-list" id="todo-list">
-
+                <div class="todo-btns-mobile" id="todo-btns-mobile">
+                    <span id="items"></span>
+                    <button id="clear">Clear Completed</button>
+                </div>
             </div>
             <div class="todo-btns" id="todo-btns">
                 <span id="items"></span>
@@ -38,18 +42,6 @@
             </div>
         </div>
     </div>
-    
-Todo
-
-<!-- Add dynamic number --> items left
-
-All
-Active 
-Completed
-
-Clear Completed
-
-Drag and drop to reorder list
 
     <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

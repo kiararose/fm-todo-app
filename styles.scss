@@ -1,25 +1,135 @@
+$primary-font: 'Josefin Sans', sans-serif;
+
+$bright-blue: hsl(220, 98%, 61%);
+$check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+//light theme
+$very-light-gray: hsl(0, 0%, 98%);
+$very-light-grayish-blue: hsl(236, 33%, 92%);
+$light-grayish-blue: hsl(233, 11%, 84%);
+$dark-grayish-blue: hsl(236, 9%, 61%);
+$very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+body {
+    margin: 0;
+    font-family: $primary-font;
+}
+
 .container {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    border: 1px solid black;
     padding: 20px;
+    background: url("images/bg-mobile-light.jpg") no-repeat;
     
+    @media (min-width: 425px) {
+        background: url("images/bg-desktop-light.jpg") no-repeat;
+    }
+
     .header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        border: 1px solid black;
+
+        .title {
+            color: $very-light-gray;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            font-size: 28px;
+        }
+
+        .theme {
+            border: none;
+            background: none;
+            outline: none;
+            cursor: pointer;
+        }
     }
     
     .input-container {
-        border: 1px solid black;
-        overflow: hidden;
-        padding: 20px;
+        padding: 20px 0;
         
         .input-field {
-            width: 100%;
+            width: -webkit-fill-available;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .input-field::placeholder {
+            font-family: $primary-font;
+        }
+    }
+
+    .todo-container {
+
+        .todo-list {
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+            .todo {
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                background: $very-light-gray;
+                border-bottom: 1px solid $light-grayish-blue;
+                
+                .checkbox {
+                    -webkit-appearance: none;
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid $light-grayish-blue;
+                    border-radius: 50%;
+                    outline: none;
+                    cursor: pointer;
+                }
+
+                .checked {
+                    background-color: $check-background;
+                }
+
+                label {
+                    
+                }
+
+                .delete-btn {
+                    border: none;
+                    background: url("images/icon-cross.svg") no-repeat;
+                    outline: none;
+                    cursor: pointer;
+                    width: 18px;
+                    height: 18px;
+                    margin-left: auto;
+                }
+            }
+
+            .todo-btns-mobile {
+                display: flex;
+                padding: 20px;
+                justify-content: space-between;
+                align-items: center;
+                background: $very-light-gray;
+
+                @media (min-width:1024px) {
+                    display: none;
+                }
+
+                span, button {
+                    color: $very-dark-grayish-blue;
+                    font-family: $primary-font;
+                    font-size: 14px;
+                }
+
+                button {
+                    border: none;
+                    background: none;
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

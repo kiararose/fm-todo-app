@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,9 +11,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 300px;
-  border: 1px solid black;
   padding: 20px;
+  background: url("images/bg-mobile-light.jpg") no-repeat;
+}
+
+@media (min-width: 425px) {
+  .container {
+    background: url("images/bg-desktop-light.jpg") no-repeat;
+  }
 }
 
 .container .header {
@@ -25,16 +35,128 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid black;
+}
+
+.container .header .title {
+  color: #fafafa;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-size: 28px;
+}
+
+.container .header .theme {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .container .input-container {
-  border: 1px solid black;
-  overflow: hidden;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .container .input-container .input-field {
-  width: 100%;
+  width: -webkit-fill-available;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.container .input-container .input-field::-webkit-input-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container .input-container .input-field:-ms-input-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container .input-container .input-field::-ms-input-placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container .input-container .input-field::placeholder {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container .todo-container .todo-list {
+  border-radius: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .todo-container .todo-list .todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  background: #fafafa;
+  border-bottom: 1px solid #d2d3db;
+}
+
+.container .todo-container .todo-list .todo .checkbox {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #d2d3db;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+
+.container .todo-container .todo-list .todo .checked {
+  background-color: linear-gradient #57ddff to #c058f3;
+}
+
+.container .todo-container .todo-list .todo .delete-btn {
+  border: none;
+  background: url("images/icon-cross.svg") no-repeat;
+  outline: none;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+}
+
+.container .todo-container .todo-list .todo-btns-mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fafafa;
+}
+
+@media (min-width: 1024px) {
+  .container .todo-container .todo-list .todo-btns-mobile {
+    display: none;
+  }
+}
+
+.container .todo-container .todo-list .todo-btns-mobile span, .container .todo-container .todo-list .todo-btns-mobile button {
+  color: #484b6a;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 14px;
+}
+
+.container .todo-container .todo-list .todo-btns-mobile button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=styles.css.map */
